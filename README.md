@@ -1,45 +1,31 @@
 # Forward Deployed Engineer (FDE) - Node.js Track
 
-Welcome to the **Forward Deployed Engineer (FDE)** curriculum repository dedicated to the **Node.js** track.
+Welcome to the **Forward Deployed Engineer (FDE)** repository dedicated to the **Node.js** track from Coder Army.
 
-This repository tracks each lecture with dedicated Git branches. Switch between branches to view and run the code and notes for each lecture.
+This repository is organized so you can either browse the code directly via folders on `main` or switch between dedicated lecture branches (`Lecture-1` through `Lecture-4`).
 
 ---
 
-## 🌿 Branches Overview
+## 📂 Curriculum & Project Structure
 
-| Branch | Lecture Title | Content Type | Summary |
+| Lecture | Folder | Type | Description |
 | :--- | :--- | :--- | :--- |
-| **[`Lecture-1`](#)** | Introduction to FDE & AI Chatbots | Notes & Architecture | Concepts: Rule-based bots vs ML classification vs Modern LLMs, customer support problem solving. |
-| **[`Lecture-2`](#)** | LLM Foundations & Prompt Engineering | Notes & Architecture | Concepts: Tokens, context windows, prompt structure, system vs user instructions, embeddings. |
-| **[`Lecture-3`](#)** | Support Ticket Summarizer | Node.js / Express Code | Raw support ticket summarizer API using OpenAI responses endpoint (`POST /api/summarize`). |
-| **[`Lecture-4`](#)** | Tomato Customer Support Chatbot | Node.js / Express Code | Multi-turn conversational AI customer support API for food delivery (`POST /api/chat`, `DELETE /api`). |
+| **Lecture 01** | [`Lecture-01/`](./Lecture-01) | Notes & Architecture | Introduction to FDE, AI support chatbots (Rule-based vs ML classification vs Modern LLMs). |
+| **Lecture 02** | [`Lecture-02/`](./Lecture-02) | Notes & Architecture | LLM foundations, next-token prediction, tokenization, context windows, and system prompts. |
+| **Lecture 03** | [`Lecture-03/`](./Lecture-03) | Node.js / Express API | Support ticket summarizer using OpenAI responses endpoint (`POST /api/summarize`). Includes automated tests. |
+| **Lecture 04** | [`Lecture-04/`](./Lecture-04) | Express Chatbot API | "Tomato" multi-turn customer support chatbot with conversational state and prompt guardrails (`POST /api/chat`, `DELETE /api`). |
 
 ---
 
-## 🚀 Quick Navigation & How to Run
+## 🚀 Running the Projects
 
-To explore and run a specific lecture, switch to its branch:
-
-### Lecture 1:
+### Lecture 03: Ticket Summarizer
 ```bash
-git checkout Lecture-1
-```
-Contains notes and architectural diagrams for Lecture 1.
-
-### Lecture 2:
-```bash
-git checkout Lecture-2
-```
-Contains notes and architectural diagrams for Lecture 2.
-
-### Lecture 3 (Ticket Summarizer API):
-```bash
-git checkout Lecture-3
+cd Lecture-03
 npm install
 npm start
 ```
-Test the API:
+Test the endpoint:
 ```bash
 curl -X POST http://localhost:8080/api/summarize \
   -H "Content-Type: text/plain" \
@@ -50,29 +36,42 @@ Run tests:
 npm test
 ```
 
-### Lecture 4 (Tomato Customer Support Chatbot):
+### Lecture 04: Tomato Customer Support Chatbot
 ```bash
-git checkout Lecture-4
+cd Lecture-04
 npm install
 npm start
 ```
-Test the API:
+Test the endpoint:
 ```bash
 curl -X POST http://localhost:3000/api/chat \
   -H "Content-Type: text/plain" \
   --data "Where is my pizza order? It has been 45 minutes!"
 ```
-Clear chat session:
+Reset conversation session:
 ```bash
 curl -X DELETE http://localhost:3000/api
 ```
 
 ---
 
+## 🌿 Git Branches
+
+If you prefer studying lecture-by-lecture with clean branch progression:
+- `git checkout Lecture-1`
+- `git checkout Lecture-2`
+- `git checkout Lecture-3`
+- `git checkout Lecture-4`
+- `git checkout main` (All lectures included)
+
+---
+
 ## 🔑 Environment Configuration
 
-An OpenAI API key is preconfigured in the `.env` file on code branches (`Lecture-3` and `Lecture-4`):
+An OpenAI API key is configured locally in `.env` within `Lecture-03/` and `Lecture-04/`:
 ```env
 OPENAI_API_KEY=your_openai_api_key_here
+PORT=3000
+OPENAI_MODEL=gpt-4o-mini
 ```
-Refer to `.env.example` on each branch for available configuration options (e.g. `PORT`, `OPENAI_MODEL`).
+Refer to `.env.example` in each folder for options.
